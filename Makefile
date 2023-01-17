@@ -3,7 +3,7 @@ default:
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-init: down up __create-project-with-no-plugins __create-project-composer-install __change-permissions __change-config __git-operations yii-migrate
+init: down up __create-project __change-config __git-operations yii-migrate
 
 update: git-pull composer-i yii-migrate
 
@@ -29,14 +29,9 @@ yii-migrate:
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-__create-project-with-no-plugins:
-	docker compose run --rm php-fpm composer create-project --no-plugins --no-interaction --prefer-dist yiisoft/yii2-app-basic .
-
-__create-project-composer-install:
-	docker compose run --rm php-fpm composer install
-
-__change-permissions:
-	sudo chown -R ${USER}:root app
+__create-project:
+	docker compose run --rm php-fpm rm .gitkeep
+	docker compose run --rm php-fpm composer create-project --no-interaction --prefer-dist yiisoft/yii2-app-basic .
 
 __change-config:
 	cp ./.docker/.helpers/change-config.php ./app

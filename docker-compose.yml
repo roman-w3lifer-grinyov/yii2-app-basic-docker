@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:1.21.6
+    image: nginx:1.22
     ports:
       - ${NGINX_PORT}:80
     volumes:
@@ -23,17 +23,15 @@ services:
         condition: service_healthy
     working_dir: /app
   mysql:
-    image: mysql:8.0.28
+    image: mysql:8.0.30
     env_file:
       - .env
     ports:
       - ${MYSQL_HOST_PORT}:3306
     volumes:
-      - mysql:/var/lib/mysql
+      - ./.docker/.mysql:/var/lib/mysql
     healthcheck:
       test: ['CMD', 'mysqladmin' ,'ping', '-h', 'localhost']
       interval: 5s
       timeout: 5s
-      retries: 10
-volumes:
-  mysql:
+      retries: 20
