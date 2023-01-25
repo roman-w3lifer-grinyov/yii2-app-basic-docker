@@ -1,6 +1,7 @@
-FROM php:8.1.4-fpm
+# pecl/mcrypt is not compatible with PHP version 8.2.0
+FROM php:8.1.14-fpm
 
-RUN apt-get update && apt-get install -y unzip
+RUN apt-get update && apt-get upgrade -y && apt-get install -y unzip
 
 # install-php-extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/

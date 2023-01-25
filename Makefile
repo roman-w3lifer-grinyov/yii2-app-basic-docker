@@ -1,13 +1,7 @@
 default:
 	@echo 'Enter command'
 
-# ----------------------------------------------------------------------------------------------------------------------
-
-init: down up __create-project __change-config __git-operations yii-migrate
-
-update: git-pull composer-i yii-migrate
-
-# ----------------------------------------------------------------------------------------------------------------------
+start: down git-pull up composer-i yii-migrate
 
 down:
 	docker compose down -v --remove-orphans
@@ -21,14 +15,13 @@ git-pull:
 composer-i:
 	docker compose run --rm php-fpm composer i
 
-composer-u:
-	docker compose run --rm php-fpm composer u
-
 yii-migrate:
 	docker compose run --rm php-fpm php yii migrate --interactive=0
 
 # ----------------------------------------------------------------------------------------------------------------------
 
+init: down up __create-project __change-config yii-migrate
+#__clear __git-operations
 __create-project:
 	docker compose run --rm php-fpm rm .gitkeep
 	docker compose run --rm php-fpm composer create-project --no-interaction --prefer-dist yiisoft/yii2-app-basic .
@@ -38,8 +31,14 @@ __change-config:
 	docker compose run --rm php-fpm php change-config.php
 	rm ./app/change-config.php
 
+__clear:
+	cp ./.docker/.helpers/clear-makefile.php ./app
+	cp ./Makefile ./app/Makefile
+	docker compose run --rm php-fpm php clear-makefile.php
+	mv ./app/Makefile ./Makefile
+	rm ./app/clear-makefile.php
+	rm -r ./.docker/.helpers
+
 __git-operations:
 	rm -fr .git
 	git init
-
-# ----------------------------------------------------------------------------------------------------------------------
