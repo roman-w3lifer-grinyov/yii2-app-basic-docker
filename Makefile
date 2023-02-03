@@ -18,6 +18,9 @@ composer-i:
 yii-migrate:
 	docker compose run --rm php-fpm php yii migrate --interactive=0
 
+bash:
+	docker compose run --rm php-fpm bash
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 init: down up __create-project __change-config yii-migrate
