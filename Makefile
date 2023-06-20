@@ -1,7 +1,8 @@
 default:
 	@echo 'Enter command'
 
-start: down git-pull up composer-i yii-migrate
+start-prod: down git-pull up composer-i yii-migrate
+start-dev: start-prod
 
 down:
 	docker compose down -v --remove-orphans
