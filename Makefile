@@ -9,11 +9,10 @@ __initialization-an-existing-project: \
 	bash
 
 start: \
-	down yii-migrate-down git-pull up \
-	composer-i \
-	yii-migrate \
-	yii-cache-flush-all \
-	bash
+	down \
+	yii-migrate-down \
+	git-pull \
+	__initialization-an-existing-project
 
 up:
 	docker compose up -d --build --remove-orphans
@@ -27,11 +26,11 @@ git-pull:
 composer-i:
 	docker compose exec php-fpm composer i
 
-yii-migrate-down:
-	docker compose exec php-fpm php yii migrate/down 99999 --interactive=0
-
 yii-migrate:
 	docker compose exec php-fpm php yii migrate --interactive=0
+
+yii-migrate-down:
+	docker compose exec php-fpm php yii migrate/down 99999 --interactive=0
 
 yii-cache-flush-all:
 	docker compose exec php-fpm php yii cache/flush-all
