@@ -1,4 +1,4 @@
-# yii2-docker-nginx-fpm-mysql
+# yii2-app-basic-docker-nginx-fpm-mysql
 
 - [Initialization](#initialization)
 - [Initializing an existing project](#initializing-an-existing-project)
@@ -9,7 +9,7 @@
 > You can set environment variables in the [`.env`](.env) file
 
 ``` sh
-git clone https://github.com/w3lifer/yii2-docker-nginx-fpm-mysql yii2-app-basic
+git clone https://github.com/w3lifer/yii2-app-basic-docker-nginx-fpm-mysql yii2-app-basic
 cd yii2-app-basic
 make __initialization
 ```
