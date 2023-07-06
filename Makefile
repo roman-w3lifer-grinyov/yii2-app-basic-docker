@@ -31,7 +31,7 @@ yii-migrate:
 	docker compose exec php-fpm php yii migrate --interactive=0
 
 yii-migrate-down:
-	docker compose exec php-fpm php yii migrate/down 99999 --interactive=0
+	docker compose run --rm php-fpm php yii migrate/down 99999 --interactive=0
 
 yii-cache-flush-all:
 	docker compose exec php-fpm php yii cache/flush-all
