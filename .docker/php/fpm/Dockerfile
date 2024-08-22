@@ -1,6 +1,7 @@
 FROM php:8.3.9-fpm
 
-RUN apt update && apt upgrade -y && apt install -y unzip
+# https://stackoverflow.com/q/57048428/4223982
+RUN apt update && apt -y upgrade && apt -y install mariadb-client unzip
 
 # install-php-extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
