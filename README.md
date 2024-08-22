@@ -1,5 +1,18 @@
 # yii2-app-basic-docker
 
+- NGINX
+- PHP-FPM
+    - MARIADB-CLIENT
+    - UNZIP
+    - EXTENSIONS:
+        - gd
+        - mcrypt
+        - pdo_mysql
+        - xdebug
+        - zip
+    - COMPOSER
+- MYSQL
+
 - [Initialization](#initialization)
 - [Initializing an existing project](#initializing-an-existing-project)
 - [Starting an existing project](#starting-an-existing-project)
