@@ -12,6 +12,7 @@
         - zip
     - COMPOSER
 - MYSQL
+- YII2-APP-BASIC
 
 - [Initialization](#initialization)
 - [Initializing an existing project](#initializing-an-existing-project)
