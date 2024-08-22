@@ -9,7 +9,7 @@
 > You can set environment variables in the [`.env`](.env) file
 
 ``` sh
-git clone https://github.com/w3lifer/yii2-app-basic-docker-nginx-fpm-mysql yii2-app-basic
+git clone https://gitlab.com/w3lifer/yii2-app-basic-docker-nginx-fpm-mysql yii2-app-basic
 cd yii2-app-basic
 make __initialization
 ```
@@ -19,7 +19,7 @@ After initialization, the `.git` directory will be deleted and the new repositor
 Hence, you can add your remote `origin` to the newly created repository, commit and push the initial commit:
 
 ``` sh
-git remote add origin git@github.com:<user>/<repo>
+git remote add origin git@gitlab.com:<user>/<repo>
 git add .
 git commit -m 'initial commit'
 git push -u origin master
@@ -30,7 +30,7 @@ git push -u origin master
 ## Initializing an existing project
 
 ``` sh
-git clone git@github.com:<user>/<repo>
+git clone git@gitlab.com:<user>/<repo>
 cd <repo>
 make __initialization-an-existing-project
 ```
