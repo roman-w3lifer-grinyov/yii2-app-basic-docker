@@ -2,15 +2,15 @@
 
 - NGINX
 - PHP-FPM
-    - MARIADB-CLIENT
-    - UNZIP
-    - EXTENSIONS:
-        - gd
-        - mcrypt
-        - pdo_mysql
-        - xdebug
-        - zip
-    - COMPOSER
+  - MARIADB-CLIENT
+  - UNZIP
+  - EXTENSIONS:
+    - gd
+    - mcrypt
+    - pdo_mysql
+    - xdebug
+    - zip
+  - COMPOSER
 - MYSQL
 - YII2-APP-BASIC
 
