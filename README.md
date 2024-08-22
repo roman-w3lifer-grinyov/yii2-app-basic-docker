@@ -14,6 +14,8 @@
 - MYSQL
 - YII2-APP-BASIC
 
+---
+
 - [Initialization](#initialization)
 - [Initializing an existing project](#initializing-an-existing-project)
 - [Starting an existing project](#starting-an-existing-project)
