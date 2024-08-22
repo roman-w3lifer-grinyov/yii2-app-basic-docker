@@ -1,4 +1,4 @@
-# yii2-app-basic-docker-nginx-fpm-mysql
+# yii2-app-basic-docker
 
 - [Initialization](#initialization)
 - [Initializing an existing project](#initializing-an-existing-project)
@@ -6,15 +6,18 @@
 
 ## Initialization
 
+``` sh
+git clone https://gitlab.com/w3lifer/yii2-app-basic-docker yii2-app-basic
+cd yii2-app-basic
+```
+
 > You can set environment variables in the [`.env`](.env) file
 
 ``` sh
-git clone https://gitlab.com/w3lifer/yii2-app-basic-docker-nginx-fpm-mysql yii2-app-basic
-cd yii2-app-basic
 make init
 ```
 
-After initialization, the `.git` directory will be deleted and the new repository will be created
+After this, the `.git` directory will be deleted and the new repository will be created
 
 Hence, you can add your remote `origin` to the newly created repository, commit and push the initial commit:
 
@@ -25,7 +28,7 @@ git commit -m 'initial commit'
 git push -u origin master
 ```
 
-> To access the app, open http://localhost:800 in your favorite browser (see [`.env`](.env) file)
+To access the app, open http://localhost:800 (see [`.env`](.env) file)
 
 ## Initializing an existing project
 
@@ -38,5 +41,5 @@ make init-existing-project
 ## Starting an existing project
 
 ``` sh
-cd /path/to/project && make start
+make start
 ```
