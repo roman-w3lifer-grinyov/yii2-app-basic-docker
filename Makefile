@@ -1,18 +1,11 @@
 default:
 	@echo 'Enter command'
 
-__initialization-an-existing-project: \
-	up \
-	composer-i \
-	yii-migrate \
-	yii-cache-flush-all \
-	bash
-
 start: \
 	down \
 	yii-migrate-down \
 	git-pull \
-	__initialization-an-existing-project
+	init-existing-project
 
 up:
 	docker compose up -d --build --remove-orphans
@@ -39,11 +32,20 @@ yii-cache-flush-all:
 bash:
 	docker compose exec php-fpm bash
 
+init-existing-project: \
+	up \
+	composer-i \
+	yii-migrate \
+	yii-cache-flush-all \
+	bash
+
 # ----------------------------------------------------------------------------------------------------------------------
 
-__initialization: \
-	down up \
-	create-project configure-project \
+init: \
+	down \
+	up \
+	create-project \
+	configure-project \
 	yii-migrate \
 	clear-initialization-files \
 	git-init \
@@ -65,6 +67,7 @@ clear-initialization-files:
 	mv ./app/Makefile ./Makefile
 	rm ./app/clear-makefile.php
 	rm -r ./.docker/.helpers
+	echo '' > README.md
 
 git-init:
 	rm -fr .git

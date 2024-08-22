@@ -11,7 +11,7 @@
 ``` sh
 git clone https://gitlab.com/w3lifer/yii2-app-basic-docker-nginx-fpm-mysql yii2-app-basic
 cd yii2-app-basic
-make __initialization
+make init
 ```
 
 After initialization, the `.git` directory will be deleted and the new repository will be created
@@ -32,7 +32,7 @@ git push -u origin master
 ``` sh
 git clone git@gitlab.com:<user>/<repo>
 cd <repo>
-make __initialization-an-existing-project
+make init-existing-project
 ```
 
 ## Starting an existing project
