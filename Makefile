@@ -43,7 +43,7 @@ bash:
 
 __initialization: \
 	down up \
-	create-project change-config \
+	create-project configure-project \
 	yii-migrate \
 	clear-initialization-files \
 	git-init \
@@ -53,10 +53,10 @@ create-project:
 	docker compose exec php-fpm rm .gitkeep
 	docker compose exec php-fpm composer create-project --no-interaction --prefer-dist yiisoft/yii2-app-basic .
 
-change-config:
-	cp ./.docker/.helpers/change-config.php ./app
-	docker compose exec php-fpm php change-config.php
-	rm ./app/change-config.php
+configure-project:
+	cp ./.docker/.helpers/configure-project.php ./app
+	docker compose exec php-fpm php configure-project.php
+	rm ./app/configure-project.php
 
 clear-initialization-files:
 	cp ./.docker/.helpers/clear-makefile.php ./app
